@@ -33,7 +33,7 @@
       <!-- Input fields tetap sama -->
       <div><input type="text" name="nama" placeholder="Nama Calon Siswa" required class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder-gray-400"></div>
       <div><input type="tel" name="wa" placeholder="Nomor WhatsApp" required class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder-gray-400"></div>
-      <div><input type="text" id="nik" name="nik" placeholder="Masukkan NIK 12 Digit" required class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder-gray-400"></div>
+      <div><input type="text" id="nik" name="nik" placeholder="Masukkan NIK 16 Digit" required class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400 placeholder-gray-400"></div>
       
       <div class="relative">
   <input id="passwordInput" type="password" name="password" placeholder="Buat Password" required
@@ -183,12 +183,12 @@ document.getElementById('buktiTransfer').addEventListener('change', function(e) 
       const password = this.password.value.trim();
       const file = document.getElementById('buktiTransfer').files[0];
 
-      // 🔍 Validasi NIK (harus 12 digit angka)
-    if (!/^\d{12}$/.test(nik)) {
+      // 🔍 Validasi NIK (harus 16 digit angka)
+    if (!/^\d{16}$/.test(nik)) {
       Swal.fire({
         icon: 'warning',
         title: 'Format NIK Tidak Valid',
-        text: 'NIK harus terdiri dari 12 digit angka.',
+        text: 'NIK harus terdiri dari 16 digit angka.',
         confirmButtonColor: '#16a34a'
       });
       return;
@@ -246,3 +246,4 @@ document.getElementById('buktiTransfer').addEventListener('change', function(e) 
   </script>
 </body>
 </html>
+
