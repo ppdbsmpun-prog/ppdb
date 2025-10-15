@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPDB - Login SKA</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-gradient-to-br from-green-50 to-green-100 min-h-screen block items-center justify-center">
+
+  <!-- Navbar -->
+ <header class="bg-green-700 text-white shadow-md sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto flex items-center justify-between p-2 sm:p-4">
+    
+    <!-- Logo + Judul -->
+    <a href="index.html" class="flex items-center space-x-2 sm:space-x-3">
+      <img src="logo.png" alt="Logo Sekolah"
+           class="w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 border-white">
+      <h1 class="text-sm sm:text-2xl font-bold tracking-wide whitespace-nowrap">
+        PPDB SMP Islam Ulun Nuha
+      </h1>
+    </a>
+
+   
+
+  </div>
+</header>
+
+<div class="flex-grow flex items-center justify-center px-4 py-8">
+
+
+
+<div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md border border-green-100 animate-fadeIn">
+ <h2 class="text-2xl font-bold text-center mb-1 text-green-700">
+  LOGIN PPDB<br>
+  <span class="text-lg font-bold text-gray-700">( JALUR SKA )</span>
+</h2><br>
+  
+
+  <form id="loginForm" class="space-y-4 relative">
+  <!-- Input NIK -->
+  <input type="text" name="nik" placeholder="Masukkan NIK"
+    class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-green-400 outline-none" required>
+
+  <!-- Input Password dengan ikon mata -->
+  <div class="relative">
+    <input type="password" name="password" id="password"
+      placeholder="Masukkan Password"
+      class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-green-400 outline-none pr-10" required>
+    
+    <!-- Tombol lihat password -->
+    <button type="button" id="togglePassword"
+      class="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-green-600 focus:outline-none">
+      <!-- Ikon mata -->
+      <svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+      </svg>
+      <!-- Ikon mata tertutup -->
+      <svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor" class="w-5 h-5 hidden">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M3 3l18 18M10.477 10.477A3 3 0 0113.5 13.5M9.88 9.88A3 3 0 0010.5 10.5M12 5c4.477 0 8.268 2.943 9.542 7a11.958 11.958 0 01-1.833 3.165M6.223 6.223A11.958 11.958 0 002.458 12c1.274 4.057 5.065 7 9.542 7 1.506 0 2.938-.278 4.243-.784" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Tombol Login -->
+  <button type="submit"
+    class="w-full bg-green-600 text-white font-semibold p-3 rounded-xl shadow hover:bg-green-700 transition">
+    Login
+  </button>
+
+  <!-- Link ke register -->
+  <p class="text-center text-sm text-gray-600 mt-3">
+    Belum punya akun?
+    <a href="registerSKA.html" class="text-green-600 font-semibold hover:underline">
+      Daftar di sini
+    </a>
+  </p>
+</form>
+</div>
+</div>
+
+
+
+<!-- Animasi -->
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn { animation: fadeIn 0.6s ease-out; }
+</style>
+
+<script>
+  const togglePassword = document.getElementById('togglePassword');
+  const passwordInput = document.getElementById('password');
+  const eyeOpen = document.getElementById('eyeOpen');
+  const eyeClosed = document.getElementById('eyeClosed');
+
+  togglePassword.addEventListener('click', () => {
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    eyeOpen.classList.toggle('hidden');
+    eyeClosed.classList.toggle('hidden');
+  });
+</script>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const nik = this.nik.value.trim();
+  const password = this.password.value.trim();
+
+  Swal.fire({
+    title: 'Login...',
+    didOpen: () => Swal.showLoading(),
+    allowOutsideClick: false
+  });
+
+  const formData = new URLSearchParams();
+  formData.append('action', 'login');
+  formData.append('nik', nik);
+  formData.append('password', password);
+
+  try {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbze0REuKPMBPVKAQ-d5qpgv3xpHhqIUzS5MJ-agOUUWuTpvSlT1LkmH2gIezV_Qs-I6tg/exec', {
+      method: 'POST',
+      body: formData
+    });
+
+    const result = await response.json();
+    Swal.close();
+
+    if (result.status === 'success') {
+      // 🔹 Simpan token, NIK, dan nama ke cookie
+      setCookie('token', result.token, 1);
+      setCookie('nik', nik, 1);
+      if (result.nama) setCookie('nama', result.nama, 1);
+
+      Swal.fire({
+        title: 'Login Berhasil',
+        icon: 'success',
+        timer: 1200,
+        showConfirmButton: false
+      });
+
+      // 🔹 Setelah login, langsung arahkan ke halaman berikutnya
+      setTimeout(() => {
+        window.location.href = 'ppdbSKA.html';
+      }, 1200);
+
+    } else if (result.status === 'pending') {
+      Swal.fire('Menunggu Persetujuan', 'Akun Anda masih menunggu persetujuan admin', 'info');
+    } else {
+      Swal.fire('Gagal', result.message, 'error');
+    }
+
+  } catch (err) {
+    Swal.fire('Error', 'Terjadi kesalahan koneksi', 'error');
+  }
+});
+
+
+// --------------------
+// 🔧 Fungsi cookie helper
+// --------------------
+function setCookie(name, value, days) {
+  const d = new Date();
+  d.setTime(d.getTime() + (days*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = `${name}=${value};${expires};path=/`;
+}
+</script>
+
+
+</body>
+</html>

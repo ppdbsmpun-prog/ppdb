@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PPDB SMP Islam Ulun Nuha</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body class="bg-gradient-to-br from-green-50 via-white to-green-100 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+ <header class="bg-green-700 text-white shadow-md sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto flex items-center justify-between p-2 sm:p-4">
+    
+    <!-- Logo + Judul -->
+    <a href="index.html" class="flex items-center space-x-2 sm:space-x-3">
+      <img src="logo.png" alt="Logo Sekolah"
+           class="w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 border-white">
+      <h1 class="text-sm sm:text-2xl font-bold tracking-wide whitespace-nowrap">
+        PPDB SMP Islam Ulun Nuha
+      </h1>
+    </a>
+
+    <!-- Tombol Daftar -->
+    <a href="#jalur"
+       class="bg-white text-green-700 px-2 sm:px-4 py-1 sm:py-2 rounded-xl font-semibold hover:bg-green-100 transition text-xs sm:text-base whitespace-nowrap">
+      Daftar
+    </a>
+
+  </div>
+</header>
+
+
+
+  <!-- Hero Section -->
+  <section class="flex flex-col items-center text-center mt-10 px-4">
+    <div class="flex items-center justify-center space-x-6 sm:space-x-12 my-6">
+  <!-- Logo Sekolah (kiri) -->
+  <img src="logo.png" alt="Logo Sekolah"
+       class="w-24 sm:w-32 h-auto animate-pulse">
+
+  <!-- Logo Yayasan (kanan) -->
+  <img src="log yayasan.png" alt="Logo Yayasan"
+       class="w-24 sm:w-32 h-auto animate-pulse">
+</div>
+    <h2 class="text-2xl sm:text-3xl font-bold text-green-800 mb-2">Penerimaan Peserta Didik Baru 2026/2027</h2>
+    <p class="text-gray-700 max-w-2xl">
+      Selamat datang di halaman resmi PPDB SMP Islam Ulun Nuha.  
+      Silakan pilih jalur pendaftaran sesuai dengan ketentuan yang berlaku.
+    </p>
+    <a href="#jalur" class="mt-5 bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition">
+      Lihat Jalur Pendaftaran
+    </a>
+  </section>
+
+  <!-- Jalur Pendaftaran -->
+  <section id="jalur" class="mt-16 px-6 pb-16">
+    <h3 class="text-center text-2xl sm:text-3xl font-bold text-green-800 mb-8">Pilih Jalur Pendaftaran</h3>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <!-- Jalur Umum -->
+      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1">
+        <img src="umum2.png" alt="Jalur Umum" class="mx-auto mb-4">
+        <h4 class="text-xl font-bold text-green-700 mb-2 text-center">Jalur Umum</h4>
+        <p class="text-gray-600 text-sm mb-4 text-center">
+          Terbuka untuk seluruh calon peserta didik tanpa persyaratan khusus.
+        </p>
+        <button onclick="bukaForm('umum')" class="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition">Daftar</button>
+      </div>
+
+      <!-- Jalur KBUN -->
+      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1">
+        <img src="log yayasan.png" alt="Jalur KBUN" class="mx-auto mb-4">
+        <h4 class="text-xl font-bold text-green-700 mb-2 text-center">Keluarga Besar Ulun Nuha (KBUN)</h4>
+        <p class="text-gray-600 text-sm mb-4 text-center">
+          Diperuntukkan bagi anak dari guru, karyawan, atau keluarga besar Ulun Nuha.
+        </p>
+        <button onclick="bukaForm('kbun')" class="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition">Daftar</button>
+      </div>
+
+      <!-- Jalur SKA -->
+      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1">
+        <img src="family.png" alt="Jalur SKA" class="mx-auto mb-4">
+        <h4 class="text-xl font-bold text-green-700 mb-2 text-center">Saudara Kandung Aktif (SKA)</h4>
+        <p class="text-gray-600 text-sm mb-4 text-center">
+          Untuk calon siswa yang memiliki kakak/adik yang masih aktif bersekolah di Ulun Nuha.
+        </p>
+        <button onclick="bukaForm('ska')" class="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition">Daftar</button>
+      </div>
+
+      <!-- Jalur Alumni -->
+      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1">
+        <img src="alumni.jpeg" alt="Jalur Alumni" class="mx-auto mb-4">
+        <h4 class="text-xl font-bold text-green-700 mb-2 text-center">Alumni</h4>
+        <p class="text-gray-600 text-sm mb-4 text-center">
+          Dikhususkan bagi lulusan SD Islam Ulun Nuha yang melanjutkan ke jenjang SMP.
+        </p>
+        <button onclick="bukaForm('alumni')" class="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition">Daftar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-green-800 text-white py-6 text-center mt-auto">
+    <p class="text-sm">&copy; 2025 SMP Islam Ulun Nuha. All rights reserved.</p>
+    <p class="text-xs mt-1">Jl. Karya Jaya Gg. Ekawali Pribadi Medan Johor</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function bukaForm(jalur) {
+      Swal.fire({
+        title: 'Konfirmasi Jalur',
+        text: 'Anda akan mendaftar melalui jalur ' + jalur.toUpperCase(),
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Lanjutkan',
+        cancelButtonText: 'Batal',
+        confirmButtonColor: '#16a34a'
+      }).then(result => {
+        if (result.isConfirmed) {
+          let targetPage = '';
+
+          switch (jalur) {
+            case 'umum':
+              targetPage = 'loginUmum.html';
+              break;
+            case 'kbun':
+              targetPage = 'loginKBUN.html';
+              break;
+            case 'ska':
+              targetPage = 'loginSKA.html';
+              break;
+            case 'alumni':
+              targetPage = 'loginAlumni.html';
+              break;
+          }
+
+          // Arahkan ke halaman login sesuai jalur
+          window.location.href = targetPage;
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

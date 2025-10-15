@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload Berkas PPDB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-green-50 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white p-6 rounded-xl shadow-md w-96">
+    <h2 class="text-xl font-semibold text-green-700 text-center mb-4">Upload Berkas</h2>
+
+    <form id="uploadForm" enctype="multipart/form-data">
+  <input type="text" name="nik" placeholder="Masukkan NIK" required>
+  <input type="file" name="file" accept="image/*,application/pdf" required>
+  <button type="submit">Upload</button>
+</form>
+  </div>
+
+  <script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwVSFzok8muQfa2DcJOQ_AHV6U5yQHOONn5cuyOxdj1IqVKVPTeBIX4E16pSbW0Du9S/exec';
+document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+
+  const res = await fetch(scriptURL, {
+    method: 'POST',
+    body: formData
+  });
+  const result = await res.json();
+  console.log(result);
+});
+</script>
+</body>
+</html>
