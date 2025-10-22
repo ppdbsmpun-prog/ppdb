@@ -11,27 +11,64 @@
 <body class="bg-gradient-to-br from-green-50 to-green-100 min-h-screen flex flex-col items-center justify-center text-center p-6">
 
   <!-- Header -->
-  <header class="mb-6">
+  <header class="mb-6 animate-fadeIn">
     <div class="flex items-center justify-center space-x-3">
-      <img src="logo.png" alt="Logo Sekolah" class="w-12 h-12 sm:w-16 sm:h-16">
+      <img src="logo.png" alt="Logo Sekolah" class="w-12 h-12 sm:w-16 sm:h-16 drop-shadow-md">
       <h1 class="text-xl sm:text-3xl font-bold text-green-700">PPDB SMP Islam Ulun Nuha</h1>
     </div>
   </header>
 
-  
+  <!-- Animasi Lottie -->
+  <lottie-player 
+    src="https://assets3.lottiefiles.com/packages/lf20_qp1q7mct.json"  
+    background="transparent"  
+    speed="1"  
+    style="width: 200px; height: 200px;"  
+    loop  
+    autoplay>
+  </lottie-player>
 
   <!-- Pesan -->
-  <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-6">Pendaftaran Jalur Ini Belum Dibuka</h2>
-  <p class="text-gray-600 mt-2 max-w-md">
-    Pendaftaran jalur ini akan <span class="font-semibold text-green-700">dibuka pada 31 Oktober 2025</span>.<br>
+  <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-4 animate-fadeInUp">
+    Pendaftaran Jalur Ini Belum Dibuka
+  </h2>
+  <p class="text-gray-600 mt-2 max-w-md animate-fadeInUp delay-200">
+    Pendaftaran jalur ini akan <span class="font-semibold text-green-700">dibuka pada 25 Oktober 2025</span>.<br>
     Silakan kembali lagi pada tanggal tersebut. Terima kasih atas antusiasme Anda!
   </p>
 
+  <!-- Informasi Berkas -->
+  <div class="bg-white shadow-md rounded-2xl p-5 mt-6 w-full max-w-md text-left animate-fadeInUp delay-300">
+    <h3 class="text-lg font-semibold text-green-700 mb-2">📄 Berkas yang Harus Dipersiapkan:</h3>
+    <ol class="list-decimal list-inside text-gray-700 space-y-1">
+      <li>Surat Rekomendasi dari <span class="font-semibold">SD Islam Ulun Nuha</span></li>
+      <li>Scan <span class="font-semibold">Kartu Keluarga</span></li>
+    </ol>
+    <p class="text-sm text-gray-500 mt-3">Pastikan berkas sudah lengkap agar proses pendaftaran berjalan lancar.</p>
+  </div>
+
   <!-- Tombol kembali -->
   <a href="index.html" 
-     class="mt-6 bg-green-600 text-white px-6 py-3 rounded-xl font-semibold shadow hover:bg-green-700 transition">
+     class="mt-6 bg-green-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 animate-fadeInUp delay-400">
     Kembali ke Beranda
   </a>
+
+  <!-- Animasi sederhana -->
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn { animation: fadeIn 1s ease forwards; }
+    .animate-fadeInUp { animation: fadeInUp 1s ease forwards; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+  </style>
 
 </body>
 </html>
