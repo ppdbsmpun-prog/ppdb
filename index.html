@@ -10,7 +10,27 @@
 </head>
 <body class="bg-gradient-to-br from-green-50 via-white to-green-100 min-h-screen flex flex-col">
 
- 
+  <!-- Navbar -->
+ <header class="bg-green-700 text-white shadow-md sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto flex items-center justify-between p-2 sm:p-4">
+    
+    <!-- Logo + Judul -->
+    <a href="index.html" class="flex items-center space-x-2 sm:space-x-3">
+      <img src="logo.png" alt="Logo Sekolah"
+           class="w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 border-white">
+      <h1 class="text-sm sm:text-2xl font-bold tracking-wide whitespace-nowrap">
+        PPDB SMP Islam Ulun Nuha
+      </h1>
+    </a>
+
+    <!-- Tombol Daftar -->
+    <a href="#jalur"
+       class="bg-white text-green-700 px-2 sm:px-4 py-1 sm:py-2 rounded-xl font-semibold hover:bg-green-100 transition text-xs sm:text-base whitespace-nowrap">
+      Daftar
+    </a>
+
+  </div>
+</header>
 
 
 
@@ -36,51 +56,139 @@
   </section>
 
   <!-- Jalur Pendaftaran -->
-  <section id="jalur" class="mt-16 px-6 pb-16">
-    <h3 class="text-center text-2xl sm:text-3xl font-bold text-green-800 mb-8">Pilih Jalur Pendaftaran</h3>
+<section id="jalur" class="mt-16 px-6 pb-16">
+  <h3 class="text-center text-2xl sm:text-3xl font-bold text-green-800 mb-8">
+    Pilih Jalur Pendaftaran
+  </h3>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-      <!-- Jalur Umum -->
-      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1">
-        <img src="umum2.png" alt="Jalur Umum" class="mx-auto mb-4">
-        <h4 class="text-xl font-bold text-green-700 mb-2 text-center">Jalur Umum</h4>
-        <p class="text-gray-600 text-sm mb-4 text-center">
-          Terbuka untuk seluruh calon peserta didik tanpa persyaratan khusus.
-        </p>
-        <button onclick="bukaForm('umum')" class="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition">Daftar</button>
-      </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
 
-      <!-- Jalur KBUN -->
-      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1">
-        <img src="log yayasan.png" alt="Jalur KBUN" class="mx-auto mb-4">
-        <h4 class="text-xl font-bold text-green-700 mb-2 text-center">Keluarga Besar Ulun Nuha (KBUN)</h4>
-        <p class="text-gray-600 text-sm mb-4 text-center">
-          Diperuntukkan bagi anak dari guru, karyawan, atau keluarga besar Ulun Nuha.
-        </p>
-        <button onclick="bukaForm('kbun')" class="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition">Daftar</button>
-      </div>
-
-      <!-- Jalur SKA -->
-      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1">
-        <img src="family.png" alt="Jalur SKA" class="mx-auto mb-4">
-        <h4 class="text-xl font-bold text-green-700 mb-2 text-center">Saudara Kandung Aktif (SKA)</h4>
-        <p class="text-gray-600 text-sm mb-4 text-center">
-          Untuk calon siswa yang memiliki kakak/adik yang masih aktif bersekolah di Ulun Nuha.
-        </p>
-        <button onclick="bukaForm('ska')" class="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition">Daftar</button>
-      </div>
-
-      <!-- Jalur Alumni -->
-      <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1">
-        <img src="alumni.jpeg" alt="Jalur Alumni" class="mx-auto mb-4">
-        <h4 class="text-xl font-bold text-green-700 mb-2 text-center">Alumni</h4>
-        <p class="text-gray-600 text-sm mb-4 text-center">
-          Dikhususkan bagi lulusan SD Islam Ulun Nuha yang melanjutkan ke jenjang SMP.
-        </p>
-        <button onclick="bukaForm('alumni')" class="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition">Daftar</button>
+    <!-- Jalur Umum -->
+    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1">
+      <img src="umum2.png" alt="Jalur Umum" class="mx-auto mb-4 w-24 h-24 object-contain">
+      <h4 class="text-xl font-bold text-green-700 mb-2 text-center">Jalur Umum</h4>
+      <p class="text-gray-600 text-sm mb-4 text-center">
+        Terbuka untuk seluruh calon peserta didik tanpa persyaratan khusus.
+      </p>
+      <div class="flex gap-2">
+        <button onclick="openModal('umum')" class="flex-1 bg-gray-100 text-green-700 py-2 rounded-xl hover:bg-gray-200 transition">Lihat Syarat</button>
+        <button onclick="bukaForm('umum')" class="flex-1 bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition">Daftar</button>
       </div>
     </div>
-  </section>
+
+    <!-- Jalur KBUN -->
+    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1">
+      <img src="log yayasan.png" alt="Jalur KBUN" class="mx-auto mb-4 w-24 h-24 object-contain">
+      <h4 class="text-xl font-bold text-green-700 mb-2 text-center">Keluarga Besar Ulun Nuha (KBUN)</h4>
+      <p class="text-gray-600 text-sm mb-4 text-center">
+        Diperuntukkan bagi anak dari guru, karyawan, atau keluarga besar Ulun Nuha.
+      </p>
+      <div class="flex gap-2">
+        <button onclick="openModal('kbun')" class="flex-1 bg-gray-100 text-green-700 py-2 rounded-xl hover:bg-gray-200 transition">Lihat Syarat</button>
+        <button onclick="bukaForm('kbun')" class="flex-1 bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition">Daftar</button>
+      </div>
+    </div>
+
+    <!-- Jalur SKA -->
+    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1">
+      <img src="family.png" alt="Jalur SKA" class="mx-auto mb-4 w-24 h-24 object-contain">
+      <h4 class="text-xl font-bold text-green-700 mb-2 text-center">Saudara Kandung Aktif (SKA)</h4>
+      <p class="text-gray-600 text-sm mb-4 text-center">
+        Untuk calon siswa yang memiliki kakak/adik yang masih aktif bersekolah di Ulun Nuha.
+      </p>
+      <div class="flex gap-2">
+        <button onclick="openModal('ska')" class="flex-1 bg-gray-100 text-green-700 py-2 rounded-xl hover:bg-gray-200 transition">Lihat Syarat</button>
+        <button onclick="bukaForm('ska')" class="flex-1 bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition">Daftar</button>
+      </div>
+    </div>
+
+    <!-- Jalur Alumni -->
+    <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-1">
+      <img src="alumni.jpeg" alt="Jalur Alumni" class="mx-auto mb-4 w-24 h-24 object-contain rounded-full">
+      <h4 class="text-xl font-bold text-green-700 mb-2 text-center">Alumni</h4>
+      <p class="text-gray-600 text-sm mb-4 text-center">
+        Dikhususkan bagi lulusan SD Islam Ulun Nuha yang melanjutkan ke jenjang SMP.
+      </p>
+      <div class="flex gap-2">
+        <button onclick="openModal('alumni')" class="flex-1 bg-gray-100 text-green-700 py-2 rounded-xl hover:bg-gray-200 transition">Lihat Syarat</button>
+        <button onclick="bukaForm('alumni')" class="flex-1 bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition">Daftar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Syarat (Umum, KBUN, SKA, Alumni) -->
+<div id="modalSyarat" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+  <div class="bg-white rounded-2xl p-6 max-w-md w-11/12 shadow-lg relative">
+    <h3 id="modalTitle" class="text-xl font-semibold text-green-700 mb-3 text-center"></h3>
+    <ul id="modalList" class="list-disc list-inside text-gray-700 text-sm space-y-1 mb-4"></ul>
+    <button onclick="closeModal()" class="w-full bg-green-600 text-white py-2 rounded-xl hover:bg-green-700 transition">Tutup</button>
+  </div>
+</div>
+
+<script>
+  const syaratData = {
+    umum: {
+      title: "Syarat Jalur Umum",
+      list: [
+        "Scan Kartu Keluarga (KK)",
+        "Scan Surat Keterangan Aktif SD/MI",
+        
+        
+      ]
+    },
+    kbun: {
+      title: "Syarat Jalur KBUN",
+      list: [
+        "Scan Kartu Keluarga (KK)",
+        "Scan SK Yayasan terakhir bagi guru dan pegawai",
+        "Foto KTP bagi Pembina, Pengawas dan Yayasan",
+        "Scan Surat Keterangan Aktif SD/MI",
+        
+      ]
+    },
+    ska: {
+      title: "Syarat Jalur SKA",
+      list: [
+        "Scan Kartu Keluarga (KK)",
+        "Surat Keterangan Aktif Saudara Kandung (tidak diperlukan jika saudara kandung berasal dari unit SMP)",
+        "Scan Surat Keterangan Aktif SD/MI",
+        
+      ]
+    },
+    alumni: {
+      title: "Syarat Jalur Alumni",
+      list: [
+        "Scan Kartu Keluarga (KK)",
+        "Scan Surat Rekomendasi dari SDI Ulun Nuha",
+      
+      ]
+    }
+  };
+
+  function openModal(jalur) {
+    const data = syaratData[jalur];
+    document.getElementById("modalTitle").textContent = data.title;
+    const listEl = document.getElementById("modalList");
+    listEl.innerHTML = "";
+    data.list.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      listEl.appendChild(li);
+    });
+    document.getElementById("modalSyarat").classList.remove("hidden");
+  }
+
+  function closeModal() {
+    document.getElementById("modalSyarat").classList.add("hidden");
+  }
+
+  // Tutup modal kalau klik di luar kotak
+  document.getElementById("modalSyarat").addEventListener("click", (e) => {
+    if (e.target.id === "modalSyarat") closeModal();
+  });
+</script>
+
 
   <!-- Footer -->
   <footer class="bg-green-800 text-white py-6 text-center mt-auto">
@@ -127,7 +235,3 @@
 
 </body>
 </html>
-
-
-
-
