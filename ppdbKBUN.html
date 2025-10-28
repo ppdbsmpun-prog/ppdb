@@ -311,7 +311,7 @@
 function setupFileValidation(inputId) {
   document.getElementById(inputId).addEventListener('change', function(e) {
     const file = e.target.files[0];
-    if (file && file.size > 2 * 1024 * 1024) { // 2MB
+    if (file && file.size > 3 * 1024 * 1024) { // 2MB
       Swal.fire({
         icon: 'error',
         title: 'Ukuran File Terlalu Besar!',
@@ -1161,6 +1161,7 @@ document.getElementById('downloadPdfBtn').addEventListener('click', async () => 
 
 </body>
 </html>
+
 
 
 
