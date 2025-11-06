@@ -233,11 +233,11 @@ document.getElementById('buktiTransfer').addEventListener('change', function(e) 
       return;
     }
 
-      // Validasi sederhana
-      if (!file) {
-        Swal.fire('Peringatan','Silakan upload Surat Rekomendasi terlebih dahulu','warning');
-        return;
-      }
+      // // Validasi sederhana
+      // if (!file) {
+      //   Swal.fire('Peringatan','Silakan upload Surat Rekomendasi terlebih dahulu','warning');
+      //   return;
+      // }
       if (!/^08\d{8,15}$/.test(wa)) {
         Swal.fire('Peringatan','Nomor WhatsApp tidak valid. Gunakan format 08xxxx','warning');
         return;
