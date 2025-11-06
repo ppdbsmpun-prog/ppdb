@@ -315,7 +315,7 @@ function setupFileValidation(inputId) {
 
 // Terapkan ke dua input
 setupFileValidation('kkFile');
-setupFileValidation('skFile');
+// setupFileValidation('skFile');
 </script>
 
 
@@ -747,7 +747,7 @@ document.getElementById('dataForm').addEventListener('submit', async function(e)
   const anakke = document.getElementById('anakke').value;
 
   const kkFile = document.getElementById('kkFile').files[0];
-  const skFile = document.getElementById('skFile').files[0];
+  // const skFile = document.getElementById('skFile').files[0];
 
   // status teks upload (dari innerText)
   const kkStatus = document.getElementById('kkLink').innerText.trim();
@@ -853,17 +853,17 @@ function readFileBase64(file) {
 
   try {
     let kkBase64 = '';
-    let skBase64 = '';
+    // let skBase64 = '';
 
     if (kkFile) {
       const compressedKK = await compressImage(kkFile);
       kkBase64 = await readFileBase64(compressedKK);
     }
 
-    if (skFile) {
-      const compressedSK = await compressImage(skFile);
-      skBase64 = await readFileBase64(compressedSK);
-    }
+    // if (skFile) {
+    //   const compressedSK = await compressImage(skFile);
+    //   skBase64 = await readFileBase64(compressedSK);
+    // }
 
 
     const formData = new URLSearchParams();
@@ -882,7 +882,7 @@ function readFileBase64(file) {
     formData.append('anakke', anakke);
     formData.append('masaKerja', masaKerja);
     formData.append('kkFile', kkBase64);
-    formData.append('skFile', skBase64);
+    // formData.append('skFile', skBase64);
     formData.append('Lengkap', 'TRUE'); // tandai bahwa form sudah lengkap & disetujui
 
     
