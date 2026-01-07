@@ -171,6 +171,15 @@
            
         </div>
 
+        <div>
+          <label for="asrama" class="block text-gray-700 font-medium mb-1">Pilihan Sekolah :</label>
+          <select id="asrama" name="asrama" class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-green-400 outline-none" required>
+            <option value="">Pilih Jenis Sekolah</option>
+            <option value="Full Day">Full Day</option>
+            <option value="Asrama">Asrama</option>
+          </select>
+        </div>
+
 
         <div>
           <label for="anakke" class="block text-gray-700 font-medium mb-1">Anak ke</label>
@@ -611,6 +620,7 @@ async function loadUserData() {
       document.getElementById('tanggalDaftar').value = data.tanggalDaftar || '';
       document.getElementById('noPendaftaran').value = data.noPendaftaran || '';
       document.getElementById('masaKerja').value = data.masaKerja || '';
+      document.getElementById('asrama').value = data.asrama || '';
 
       
      
@@ -745,6 +755,7 @@ document.getElementById('dataForm').addEventListener('submit', async function(e)
   const unitOrtu = document.getElementById('unitOrtu').value;
   const masaKerja = document.getElementById('masaKerja').value;
   const anakke = document.getElementById('anakke').value;
+  const asrama = document.getElementById('asrama').value;
 
   const kkFile = document.getElementById('kkFile').files[0];
   const skFile = document.getElementById('skFile').files[0];
@@ -881,6 +892,8 @@ function readFileBase64(file) {
     formData.append('unitOrtu', unitOrtu);
     formData.append('anakke', anakke);
     formData.append('masaKerja', masaKerja);
+    formData.append('asrama', asrama);
+
     formData.append('kkFile', kkBase64);
     formData.append('skFile', skBase64);
     formData.append('Lengkap', 'TRUE'); // tandai bahwa form sudah lengkap & disetujui
